@@ -25,6 +25,7 @@
 }
 
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -70,6 +71,14 @@ button {
 img,
 svg {
   max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p,
+summary {
+  overflow-wrap: break-word;
 }
 
 .container {
@@ -238,8 +247,9 @@ p {
 
 .brand-logo {
   display: block;
-  width: 120px;
-  height: auto;
+  width: auto;
+  height: 54px;
+  max-height: 54px;
 }
 
 .nav {
@@ -1493,39 +1503,68 @@ dd {
 }
 
 @media (max-width: 760px) {
+  [id] {
+    scroll-margin-top: 92px;
+  }
+
   body {
-    padding-bottom: 72px;
+    padding-bottom: 84px;
     font-size: 15px;
   }
 
   .container {
-    width: min(100% - 28px, var(--container));
+    width: min(100% - 24px, var(--container));
   }
 
   .section {
-    padding: 66px 0;
+    padding: 56px 0;
   }
 
   h1 {
-    font-size: clamp(36px, 12vw, 48px);
+    margin-bottom: 18px;
+    font-size: clamp(32px, 10.5vw, 44px);
+    line-height: 1.08;
   }
 
   h2 {
-    font-size: clamp(29px, 10vw, 40px);
+    font-size: clamp(27px, 8.8vw, 36px);
+    line-height: 1.1;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .section-head,
+  .section-head.align-left {
+    margin-bottom: 28px;
+    text-align: left;
+  }
+
+  .eyebrow,
+  .mini-label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
   }
 
   .site-header {
+    position: fixed;
     top: 8px;
-    grid-template-columns: minmax(0, 1fr) 46px;
-    width: calc(100% - 20px);
-    min-height: 66px;
-    margin: 8px auto;
-    padding: 10px;
+    left: 10px;
+    right: 10px;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    width: auto;
+    min-height: 64px;
+    margin: 0;
+    padding: 8px 10px;
+    gap: 0 8px;
     border-radius: 18px;
   }
 
   .brand-logo {
-    width: 108px;
+    width: auto;
+    height: 48px;
+    max-height: 48px;
   }
 
   .menu-toggle {
@@ -1533,8 +1572,8 @@ dd {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 46px;
-    height: 46px;
+    width: 44px;
+    height: 44px;
     border: 1px solid var(--line);
     border-radius: 14px;
     background: #fff;
@@ -1588,6 +1627,17 @@ dd {
     pointer-events: auto;
   }
 
+  .site-header.menu-open {
+    max-height: calc(100dvh - 20px);
+    overflow-y: auto;
+  }
+
+  .site-header.menu-open ~ .mobile-actions {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+  }
+
   .nav {
     align-items: stretch;
     gap: 0;
@@ -1605,7 +1655,8 @@ dd {
   .nav a {
     display: flex;
     align-items: center;
-    min-height: 44px;
+    min-height: 42px;
+    padding-inline: 2px;
   }
 
   .header-actions {
@@ -1622,6 +1673,7 @@ dd {
     display: flex;
     align-items: center;
     min-height: 40px;
+    justify-content: center;
   }
 
   .header-actions .btn {
@@ -1629,8 +1681,19 @@ dd {
   }
 
   .hero {
-    margin-top: -90px;
-    padding-top: 118px;
+    margin-top: 0;
+    padding-top: 106px;
+  }
+
+  .hero-grid {
+    gap: 24px;
+    padding-top: 0;
+  }
+
+  .hero-lead {
+    margin-bottom: 22px;
+    font-size: 17px;
+    line-height: 1.55;
   }
 
   .hero-cta-row,
@@ -1640,19 +1703,40 @@ dd {
     grid-template-columns: 1fr;
   }
 
+  .hero-cta-row {
+    display: none;
+  }
+
   .btn,
   .quiz-actions .btn {
     width: 100%;
   }
 
   .badge-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
 
   .badge-row span,
   .pill-grid span {
-    width: 100%;
     justify-content: center;
+    min-height: 40px;
+    padding: 8px 12px;
+    text-align: center;
+  }
+
+  .badge-row span {
+    width: auto;
+    font-size: 12px;
+  }
+
+  .badge-row span:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .pill-grid span {
+    width: 100%;
   }
 
   .lead-card,
@@ -1660,7 +1744,48 @@ dd {
   .form-card,
   .contact-panel,
   .modal-dialog {
-    padding: 20px;
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  input,
+  select,
+  textarea {
+    min-height: 52px;
+    border-radius: 14px;
+  }
+
+  .lead-card h2 {
+    font-size: 25px;
+  }
+
+  .object-visual {
+    min-height: 190px;
+  }
+
+  .object-info div,
+  .stats-grid div {
+    padding: 16px;
+  }
+
+  .stats-grid div {
+    min-height: auto;
+  }
+
+  .stats-grid strong {
+    font-size: 24px;
+  }
+
+  .service-card,
+  .benefit-card,
+  .timeline-card,
+  .review-card,
+  .case-body,
+  .media-card {
+    padding: 18px;
+  }
+
+  .service-card {
     border-radius: 22px;
   }
 
@@ -1682,6 +1807,7 @@ dd {
   .legal-timeline article {
     grid-template-columns: 1fr;
     gap: 4px;
+    padding: 18px;
   }
 
   .timeline {
@@ -1689,7 +1815,35 @@ dd {
   }
 
   .map-card {
-    min-height: 420px;
+    min-height: 360px;
+  }
+
+  .documents-block {
+    padding: 16px;
+    border-radius: 24px;
+  }
+
+  .docs-grid h3 {
+    min-height: auto;
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .faq-list summary {
+    min-height: 62px;
+    padding: 0 18px;
+  }
+
+  .faq-list p {
+    padding: 0 18px 18px;
+  }
+
+  .footer {
+    padding-bottom: 30px;
+  }
+
+  .footer-bottom {
+    display: grid;
   }
 
   .floating-call {
@@ -1698,9 +1852,9 @@ dd {
 
   .mobile-actions {
     position: fixed;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
+    left: max(10px, env(safe-area-inset-left));
+    right: max(10px, env(safe-area-inset-right));
+    bottom: max(10px, env(safe-area-inset-bottom));
     z-index: 50;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1711,6 +1865,7 @@ dd {
     background: rgba(255, 255, 255, 0.88);
     box-shadow: 0 18px 48px rgba(17, 24, 39, 0.18);
     backdrop-filter: blur(18px);
+    transition: opacity 180ms ease, transform 180ms ease;
   }
 
   .mobile-actions a {
@@ -1722,10 +1877,75 @@ dd {
     color: #fff;
     background: var(--navy);
     font-weight: 900;
+    font-size: 14px;
   }
 
   .mobile-actions a:last-child {
     color: var(--navy);
     background: #e4f8ff;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    width: min(100% - 20px, var(--container));
+  }
+
+  .site-header {
+    left: 8px;
+    right: 8px;
+    width: auto;
+    padding: 8px;
+    gap: 0 6px;
+  }
+
+  .brand-logo {
+    height: 44px;
+    max-height: 44px;
+  }
+
+  .menu-toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  .lead-card,
+  .quiz-card,
+  .form-card,
+  .contact-panel,
+  .modal-dialog,
+  .service-card,
+  .benefit-card,
+  .timeline-card,
+  .review-card,
+  .case-body,
+  .media-card {
+    padding: 16px;
+  }
+
+  .documents-block {
+    padding: 12px;
+  }
+
+  .mobile-actions {
+    left: max(8px, env(safe-area-inset-left));
+    right: max(8px, env(safe-area-inset-right));
+    gap: 6px;
+    padding: 6px;
+    border-radius: 16px;
+  }
+
+  .mobile-actions a {
+    min-height: 48px;
+    border-radius: 13px;
+    font-size: 13px;
   }
 }
