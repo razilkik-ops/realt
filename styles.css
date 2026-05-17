@@ -212,8 +212,9 @@ p {
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 14px;
+  left: 50%;
   z-index: 40;
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -221,13 +222,14 @@ p {
   gap: 22px;
   width: min(1360px, calc(100% - 28px));
   min-height: 78px;
-  margin: 14px auto;
+  margin: 0;
   padding: 14px 18px;
   border: 1px solid rgba(255, 255, 255, 0.68);
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.72);
   box-shadow: 0 18px 48px rgba(17, 24, 39, 0.08);
   backdrop-filter: blur(22px);
+  transform: translateX(-50%);
   transition: min-height 180ms ease, background 180ms ease, box-shadow 180ms ease;
 }
 
@@ -292,8 +294,8 @@ p {
 }
 
 .hero {
-  margin-top: -106px;
-  padding-top: 160px;
+  margin-top: 0;
+  padding-top: 150px;
   overflow: hidden;
 }
 
@@ -1579,6 +1581,10 @@ dd {
     padding: 8px 10px;
     gap: 0 8px;
     border-radius: 18px;
+    background: rgba(255, 255, 255, 0.74);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform: none;
   }
 
   .brand-logo {
