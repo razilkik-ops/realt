@@ -1213,6 +1213,15 @@ dd {
   margin-top: 8px;
 }
 
+.contact-actions .btn {
+  display: inline-flex;
+  margin-top: 0;
+}
+
+.contact-actions .btn-primary {
+  color: #fff;
+}
+
 .map-card {
   position: relative;
   min-height: 540px;
@@ -1300,8 +1309,19 @@ dd {
 }
 
 .footer .brand-logo {
-  width: 170px;
+  width: 196px;
+  height: auto;
+  max-height: none;
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.22));
+}
+
+.footer-brand {
+  width: fit-content;
+  margin-bottom: 10px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .footer-grid {
