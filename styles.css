@@ -145,6 +145,10 @@ button {
   white-space: nowrap;
 }
 
+.menu-toggle {
+  display: none;
+}
+
 .nav a,
 .phone-link,
 .details-link,
@@ -1044,13 +1048,24 @@ textarea:focus {
 
   .site-header {
     top: 8px;
+    grid-template-columns: minmax(0, 1fr) 44px;
     width: calc(100% - 28px);
     margin: 8px auto;
     padding: 12px 14px;
+    gap: 10px;
+    border-radius: 16px;
   }
 
   .brand {
+    min-width: 0;
     font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .brand span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .brand-mark {
@@ -1059,17 +1074,109 @@ textarea:focus {
     height: 40px;
   }
 
+  .menu-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: end;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fff;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--blue);
+    transition: transform 180ms ease, opacity 180ms ease;
+  }
+
+  .menu-toggle span:nth-child(1) {
+    transform: translateY(-6px);
+  }
+
+  .menu-toggle span:nth-child(3) {
+    transform: translateY(6px);
+  }
+
+  .site-header.menu-open .menu-toggle span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+
+  .site-header.menu-open .menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .site-header.menu-open .menu-toggle span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
   .nav,
   .header-actions {
-    gap: 10px;
-    flex-wrap: wrap;
-    overflow-x: visible;
+    grid-column: 1 / -1;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height 220ms ease, opacity 160ms ease, padding 180ms ease;
+  }
+
+  .site-header.menu-open .nav,
+  .site-header.menu-open .header-actions {
+    max-height: 340px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav {
+    align-items: stretch;
+    gap: 4px;
+    padding: 0;
+    border-top: 1px solid transparent;
+    flex-direction: column;
+  }
+
+  .site-header.menu-open .nav {
+    margin-top: 4px;
+    padding-top: 12px;
+    border-top-color: var(--line);
+  }
+
+  .nav a {
+    display: flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 0 4px;
+  }
+
+  .header-actions {
+    align-items: stretch;
+    gap: 8px;
+    padding: 0;
+    flex-direction: column;
+  }
+
+  .site-header.menu-open .header-actions {
+    padding-top: 10px;
   }
 
   .nav a,
   .phone-link,
   .btn-small {
     font-size: 12px;
+  }
+
+  .phone-link {
+    display: flex;
+    align-items: center;
+    min-height: 38px;
   }
 
   .form-card .btn,
@@ -1080,8 +1187,7 @@ textarea:focus {
   }
 
   .header-actions .btn {
-    flex: 0 0 auto;
-    width: auto;
+    width: 100%;
   }
 
   .hero-inner {
