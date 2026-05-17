@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 235" role="img" aria-labelledby="logo-title">
+  <title id="logo-title">Твой риэлтер</title>
+  <defs>
+    <linearGradient id="markGradient" x1="165" y1="18" x2="165" y2="154" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#18c8f4"/>
+      <stop offset="0.55" stop-color="#12aee8"/>
+      <stop offset="1" stop-color="#0887df"/>
+    </linearGradient>
+    <linearGradient id="markShade" x1="80" y1="124" x2="178" y2="91" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b8fe2"/>
+      <stop offset="1" stop-color="#05549b"/>
+    </linearGradient>
+  </defs>
+  <path
+    fill="url(#markGradient)"
+    d="M89 145c-19 19-49 19-68 0s-19-49 0-68L126 18c21-21 56-21 77 0l105 105c19 19 19 49 0 68s-49 19-68 0l-75-75-76 76Z"
+  />
+  <path
+    fill="url(#markShade)"
+    opacity="0.72"
+    d="M33 132c23-42 67-64 112-45 13 5 25 14 35 26l-15 3c-38-28-82-27-132 16Z"
+  />
+  <path
+    fill="#18c8f4"
+    opacity="0.28"
+    d="M94 78c34-38 76-48 130-31l-21-29c-21-21-56-21-77 0L94 78Z"
+  />
+  <text
+    x="165"
+    y="219"
+    fill="#13bdf2"
+    font-family="Manrope, Arial, sans-serif"
+    font-size="43"
+    font-weight="500"
+    letter-spacing="2"
+    text-anchor="middle"
+  >ТВОЙ РИЭЛТЕР</text>
+</svg>

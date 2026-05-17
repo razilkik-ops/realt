@@ -236,21 +236,10 @@ p {
   font-weight: 900;
 }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
-  flex: 0 0 46px;
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  color: #fff;
-  background: linear-gradient(135deg, var(--navy), var(--gold));
-  box-shadow: 0 12px 30px rgba(16, 35, 63, 0.22);
-}
-
-.brand-text {
-  color: var(--navy-2);
-  font-size: 17px;
+.brand-logo {
+  display: block;
+  width: 132px;
+  height: auto;
 }
 
 .nav {
@@ -1247,9 +1236,13 @@ dd {
   background: var(--navy-2);
 }
 
-.footer h3,
-.footer .brand-text {
+.footer h3 {
   color: #fff;
+}
+
+.footer .brand-logo {
+  width: 170px;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.22));
 }
 
 .footer-grid {
@@ -1478,17 +1471,8 @@ dd {
     border-radius: 18px;
   }
 
-  .brand-text {
-    overflow: hidden;
-    font-size: 15px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .brand-mark {
-    flex-basis: 42px;
-    width: 42px;
-    height: 42px;
+  .brand-logo {
+    width: 108px;
   }
 
   .menu-toggle {
